@@ -1,8 +1,8 @@
-// src/app/layout.tsx  <--  هذا هو الملف الرئيسي والصحيح
+
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css"; //  <--  ملف الستايل العام مكانه هنا فقط
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio", // يمكنك تغيير العنوان هنا
+  title: "My Portfolio",
   description: "My personal portfolio website.",
 };
 
