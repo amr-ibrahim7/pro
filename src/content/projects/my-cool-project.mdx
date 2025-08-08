@@ -1,36 +1,28 @@
+---
 title: 'Zenith - Task Management Dashboard'
-image: '/images/projects/zenith-dashboard.png'
-description: 'A full-stack task management application designed to boost productivity with a clean, intuitive drag-and-drop interface.'
+image: '/images/photos/cat.jpeg'
+description: 'A full-stack task management application designed to boost productivity.'
 link_github: 'https://github.com/your-username/zenith-tasks'
 link_preview: 'https://zenith-tasks.vercel.app'
-Project Purpose and Goal
-The goal of "Zenith" was to create a task management tool that strikes the perfect balance between simplicity and functionality. Many existing apps are either too basic (simple to-do lists) or overly complex for individual developers or small teams. I wanted to build a clean, fast, and visually pleasing dashboard that helps users organize their workflow without a steep learning curve.
-The primary goals were:
-User authentication to allow for personal, private boards.
-A Kanban-style board with drag-and-drop functionality.
-Real-time updates across devices for a seamless experience.
-Web Stack and Explanation
-I chose a modern, full-stack JavaScript setup to build this application, focusing on developer experience and performance.
-Next.js: Used as the full-stack framework. Its file-based routing and API routes made it easy to organize both the frontend and backend logic in one place. Server-Side Rendering (SSR) was used for the initial page load to improve SEO and perceived performance.
-Supabase: Chosen as the backend-as-a-service. It provided a powerful PostgreSQL database, real-time database subscriptions, and, most importantly, a very simple and secure authentication system out of the box. This saved a huge amount of time on backend development.
-React Query (TanStack Query): For all data fetching and state synchronization. It simplified caching, background refetching, and optimistic updates, which was crucial for the drag-and-drop feature to feel instantaneous.
-Tailwind CSS: For styling. Its utility-first approach allowed for rapid UI development and easy implementation of a dark mode theme, matching the one in my portfolio.
-Framer Motion: To add subtle, fluid animations to the UI, especially for task cards and modal windows, making the user experience more polished and engaging.
-Zod & React Hook Form: For robust and type-safe form validation, ensuring that user input for tasks and login/signup forms is always correct.
-Problem and Thought Process
-One of the main challenges was implementing the drag-and-drop functionality with real-time updates. When a user moves a task from "To-Do" to "In Progress", this change needs to be reflected immediately on their screen and saved to the database.
-My thought process was as follows:
-Initial State: The user drags a card.
-Optimistic Update: Instead of waiting for the database to confirm the change, I immediately updated the UI on the client-side using React Query's onMutate function. This makes the app feel incredibly fast because the user gets immediate visual feedback.
-Backend Mutation: In the background, a request is sent to the Supabase backend to update the task's status in the database.
-Handling Success/Failure: If the database update succeeds, React Query automatically refetches the data to ensure consistency. If it fails, React Query reverts the UI back to its original state and shows an error message. This pattern ensures a great user experience without sacrificing data integrity.
-Another challenge was ensuring real-time collaboration. If a user has the app open on two devices, a change on one should instantly appear on the other. This was solved elegantly using Supabase's real-time subscriptions. By subscribing to changes in the tasks table, the app listens for any inserts, updates, or deletes and automatically updates the UI.
-Lessons Learned
-This project was a fantastic learning experience.
-Database Schema Matters: I learned the importance of planning the database schema carefully from the start. A small mistake in how tables are related can lead to complex and inefficient queries down the line.
-The Power of Optimistic UI: Implementing optimistic updates was a game-changer. It taught me how to build interfaces that feel instantaneous and responsive, significantly improving the user's perception of performance.
-Authentication is Accessible: Services like Supabase have made implementing secure authentication much more accessible than building it from scratch. It allowed me to focus more on the core features of the application.
-Here's a look at the login screen, which uses Supabase Auth for secure access.
-![alt text](/images/projects/zenith-login.png)
-This GIF shows the core drag-and-drop feature in action.
-![alt text](/images/projects/zenith-drag-drop.gif)
+projectPurposeAndGoal: |
+  The goal of "Zenith" was to create a task management tool that balances simplicity and functionality. I wanted a clean, fast dashboard for individuals and small teams.
+webStackAndExplanation:
+  - stackName: 'Next.js'
+    explanation: 'Used as the full-stack framework for its file-based routing and performance.'
+    icon: '/images/photos/cat.jpeg'
+  - stackName: 'Supabase'
+    explanation: 'Backend-as-a-service for database, auth, and real-time features.'
+    icon: '/images/photos/cat.jpeg'
+projectImages:
+  - '/images/photos/cat.jpeg'
+  - '/images/photos/cat.jpeg'
+  - '/images/photos/cat.jpeg'
+  - '/images/photos/cat.jpeg'
+problemAndThoughts: |
+  The main challenge was implementing real-time drag-and-drop. I used optimistic UI updates with React Query to make it feel instant.
+problemImage: '/images/photos/cat.jpeg'
+lessonsLearned: |
+  This project taught me the power of optimistic UI patterns and how services like Supabase can dramatically speed up backend development.
+---
+
+This is the main body of the Markdown file. You can write more detailed content here if needed, and it will be rendered by `react-markdown`.

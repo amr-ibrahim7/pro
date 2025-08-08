@@ -1,0 +1,32 @@
+media:
+  - input: "public/images/projects"
+    output: "/images/projects"
+
+content:
+  - name: "projects"
+    label: "Projects"
+    type: "collection"
+    path: "src/content/projects"
+    fields:
+      - { name: "title", label: "Project Title", type: "string", required: true }
+      - { name: "image", label: "Main Image", type: "image", required: true }
+      - { name: "description", label: "Short Description", type: "string", required: true }
+      - { name: "link_github", label: "GitHub Link", type: "string" }
+      - { name: "link_preview", label: "Preview Link", type: "string" }
+      - { name: "projectPurposeAndGoal", label: "Project Purpose and Goal", type: "rich-text" }
+      - name: "webStackAndExplanation"
+        label: "Web Stack & Explanation"
+        type: "object"
+        list: true
+        fields:
+          - { name: "stackName", label: "Stack Name", type: "string" }
+          - { name: "explanation", label: "Explanation", type: "string" }
+          - { name: "icon", label: "Stack Icon", type: "image" }
+      - name: "projectImages"
+        label: "Project Images (Grid of 4)"
+        type: "image"
+        list: true
+      - { name: "problemAndThoughts", label: "Problem and Thoughts", type: "rich-text" }
+      - { name: "problemImage", label: "Problem Image", type: "image" }
+      - { name: "lessonsLearned", label: "Lessons Learned", type: "rich-text" }
+      - { name: "body", label: "Full Details (Markdown Body)", type: "rich-text" }
