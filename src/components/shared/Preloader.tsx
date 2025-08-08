@@ -16,7 +16,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
   useLayoutEffect(() => {
     const tl = gsap.timeline({
       onComplete: () => {
-        setTimeout(onComplete, 300);
+        setTimeout(onComplete, 60);
       },
     });
 

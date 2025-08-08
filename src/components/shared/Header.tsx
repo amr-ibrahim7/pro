@@ -4,9 +4,9 @@ import React, { useRef, useState } from 'react';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import Logo from './Logo';
 import { ThemeToggle } from './ThemeToggle';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
@@ -55,9 +55,7 @@ export default function Header() {
     >
       <nav className="flex w-full max-w-2xl items-center justify-between rounded-full bg-white/80 p-2 shadow-lg backdrop-blur-md dark:bg-zinc-800/80 dark:text-zinc-200">
         <div className="flex flex-1 justify-start">
-          <Link href="/">
             <Logo />
-          </Link>
         </div>
         <div className="flex flex-1 justify-center items-center gap-2 text-foreground">
             <NavLink href="/about">About</NavLink>
