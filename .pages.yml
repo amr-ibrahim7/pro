@@ -1,5 +1,6 @@
 media:
-  - input: "public/images/projects"
+  - name: "project_images"
+    input: "public/images/projects"
     output: "/images/projects"
 
 content:
