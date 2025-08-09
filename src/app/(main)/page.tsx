@@ -1,7 +1,9 @@
 import { Container } from '@/components/shared/Container';
 import ProjectCollage from '@/components/projects/ProjectCollage';
+import { getAllProjects } from '@/lib/projects';
 
 export default function HomePage() {
+  const allProjects = getAllProjects(); 
   return (
     <>
       <Container className="mt-36 sm:mt-48">
@@ -13,7 +15,7 @@ export default function HomePage() {
       </Container>
       <Container className="mt-20 sm:mt-24">
         <div className="mx-auto max-w-full lg:max-w-7xl">
-            <ProjectCollage />
+        <ProjectCollage projects={allProjects} />
         </div>
       </Container>
     </>

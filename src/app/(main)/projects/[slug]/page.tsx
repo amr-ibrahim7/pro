@@ -10,12 +10,19 @@ export async function generateStaticParams() {
 
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const { frontmatter } = getProjectBySlug(params.slug);
-  return {
-    title: frontmatter.title,
-    description: frontmatter.description,
-  };
-}
+    const project = getProjectBySlug(params.slug);
+    if (!project) {
+      return {
+        title: "Project Not Found", 
+      };
+    }
+  
+
+    return {
+      title: project.frontmatter.title,
+      description: project.frontmatter.description,
+    };
+  }
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = getProjectBySlug(params.slug);
