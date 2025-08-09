@@ -4,19 +4,17 @@ import React, { useLayoutEffect, useRef } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import { gsap } from 'gsap'
-import { projectsData } from '@/lib/projects-data'
 import clsx from 'clsx'
 
 type Project = {
     id: string;
-    image: StaticImageData | string;
+    image: string;
     link: {
       href: string;
     };
     name: string;
 };
 
-const featuredProjects: Project[] = projectsData.slice(0, 5);
 
 const initialStyles = [
   { rotation: -4, size: 'w-44 h-44 sm:w-[180px] sm:h-[180px]' },
@@ -26,8 +24,11 @@ const initialStyles = [
   { rotation: -3, size: 'w-48 h-48 sm:w-[180px] sm:h-[180px]' },
 ];
 
-export default function ProjectCollage() {
+export default function ProjectCollage({ projects }: { projects: Project[] }){
+  const featuredProjects: Project[] = projects.slice(0, 5);
+  
   const containerRef = useRef<HTMLDivElement>(null);
+
   const animationData = useRef<{ 
     initialPositions: { x: number; y: number }[]; 
     intervalId: NodeJS.Timeout | null;
@@ -100,8 +101,6 @@ export default function ProjectCollage() {
           <Link
             key={project.id}
             href={project.link.href}
-            target="_blank"
-            rel="noopener noreferrer"
             className={clsx(
               'photo',
               'group relative aspect-square flex-none overflow-visible rounded-xl shadow-lg',
