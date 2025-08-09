@@ -1,6 +1,5 @@
 media:
-  - name: "project_images"
-    input: "public/images/projects"
+  - input: "public/images/projects"
     output: "/images/projects"
 
 content:
@@ -12,6 +11,12 @@ content:
       - { name: "title", label: "Project Title", type: "string", required: true }
       - { name: "image", label: "Main Image", type: "image", required: true }
       - { name: "description", label: "Short Description", type: "string", required: true }
+      - { name: "projectType", label: "Project Type", type: "string", default: "Personal Project" }
+      - name: "tags"
+        label: "Technologies Used (Stack)"
+        type: "string"
+        list: true
+
       - { name: "link_github", label: "GitHub Link", type: "string" }
       - { name: "link_preview", label: "Preview Link", type: "string" }
       - { name: "projectPurposeAndGoal", label: "Project Purpose and Goal", type: "rich-text" }

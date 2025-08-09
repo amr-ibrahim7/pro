@@ -1,9 +1,23 @@
 import { Container } from '@/components/shared/Container';
 import ProjectCollage from '@/components/projects/ProjectCollage';
 import { getAllProjects } from '@/lib/projects';
+import FeaturedProjects from '@/components/projects/FeaturedProjects';
+import Experience from '@/components/shared/Experience';
+import ContactSection from '@/components/shared/ContactSection';
 
 export default function HomePage() {
   const allProjects = getAllProjects(); 
+   const featured = allProjects.slice(0, 2).map(p => ({
+    id: p.id,
+    name: p.name,
+    image: p.image,
+    link: p.link,
+    description: p.description,
+    tags: p.tags,
+    link_preview: p.link_preview,
+    link_github: p.link_github,
+  }));
+
   return (
     <>
       <Container className="mt-36 sm:mt-48">
@@ -17,6 +31,20 @@ export default function HomePage() {
         <div className="mx-auto max-w-full lg:max-w-7xl">
         <ProjectCollage projects={allProjects} />
         </div>
+      </Container>
+
+      <Container className="mt-24 sm:mt-32">
+        <FeaturedProjects projects={featured} />
+      </Container>
+
+
+      <Container className="mt-24 sm:mt-32">
+        <Experience />
+      </Container>
+
+
+      <Container className="mt-24 sm:mt-32 pb-16">
+        <ContactSection />
       </Container>
     </>
   );

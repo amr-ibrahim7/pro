@@ -52,8 +52,11 @@ export function getAllProjects() {
         id: project.slug,
         name: project.frontmatter.title,
         image: project.frontmatter.image,
+        description: project.frontmatter.description,
+        tags: project.frontmatter.tags || [],
+        link_preview: project.frontmatter.link_preview || null,
+        link_github: project.frontmatter.link_github || null,
         link: {
-          
           href: `/projects/${project.slug}`,
         },
       };
