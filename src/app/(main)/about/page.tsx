@@ -20,7 +20,7 @@ export default function AboutPage() {
     <Container className="mt-32 sm:mt-40">
          <div className="max-w-4xl mx-auto mb-8">
         <BackButton />
-      </div>
+          </div>
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-flow-col lg:gap-x-12">
         
         <div className="flex justify-center lg:order-last lg:pl-20">

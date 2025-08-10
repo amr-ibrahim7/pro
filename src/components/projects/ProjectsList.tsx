@@ -2,7 +2,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import AnimatedLink from '../shared/AnimatedLink';
+import { Button } from '@/components/ui/button';
+
 
 type Project = {
   id: string;
@@ -11,20 +12,27 @@ type Project = {
   description: string;
 };
 
-export default function FeaturedProjects({ projects }: { projects: Project[] }) {
+
+const PROJECTS_PER_PAGE = 5;
+
+export default function ProjectsList({ projects }: { projects: Project[] }) {
+  const [visibleCount, setVisibleCount] = useState(PROJECTS_PER_PAGE);
+
+
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const visibleProjects = projects.slice(0, visibleCount);
+  const hasMore = visibleCount < projects.length;
+
+  const loadMore = () => {
+    setVisibleCount(prevCount => prevCount + PROJECTS_PER_PAGE);
+  };
 
   return (
     <>
       <section>
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-center" id="case-studies">
-            Case Studies
-          </h2>
-        </div>
-
         <div className="flex flex-col gap-16 md:gap-20">
-          {projects.map((project) => (
+          {visibleProjects.map((project, index) => (
             <div key={project.id}>
               <div 
                 className="group relative w-full h-64 md:h-80 lg:h-96 overflow-hidden rounded-xl mb-6 cursor-pointer"
@@ -36,7 +44,7 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
                   fill
                   className="object-cover transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-105"
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  priority={projects.indexOf(project) < 2}
+                  priority={index < 2}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
@@ -65,11 +73,14 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
           ))}
         </div>
 
-        <div className="mt-16 flex justify-center">
-          <AnimatedLink href="/projects" title="More Projects" />
-        </div>
+        {hasMore && (
+          <div className="mt-16 text-center">
+            <Button onClick={loadMore} size="lg" variant="secondary">
+              More Projects
+            </Button>
+          </div>
+        )}
       </section>
-
       {selectedImage && (
         <div 
           className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
