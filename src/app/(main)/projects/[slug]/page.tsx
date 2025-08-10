@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import ProjectFooterCTA from '@/components/shared/ProjectFooterCTA';
+import BackButton from '@/components/shared/BackButton';
 
 
 export async function generateStaticParams() {
@@ -39,6 +40,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="container mx-auto pt-32 sm:pt-48 pb-24 px-4">
+    <div className="max-w-4xl mx-auto mb-8">
+        <BackButton />
+      </div>
       <header className="max-w-4xl mx-auto mb-16">
 
 
