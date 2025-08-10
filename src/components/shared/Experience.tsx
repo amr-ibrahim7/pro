@@ -1,4 +1,9 @@
+'use client';
+import { ArrowRight } from 'lucide-react';
 import React from 'react';
+import {  motion } from 'framer-motion';
+
+
 
 const experiences = [
     {
@@ -39,6 +44,32 @@ export default function Experience() {
                         </div>
                     </div>
                 ))}
+            </div>
+
+             <div className="mt-12 text-center">
+                <a 
+                     href="https://drive.google.com/"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2 text-lg font-medium text-primary hover:text-primary/90 transition-colors"
+                >
+                    Download CV
+                    <div className="relative w-5 h-5 overflow-hidden">
+                        <motion.div
+                            className="absolute flex gap-x-4"
+                            animate={{ x: [ -36, 0 ] }} 
+                            transition={{
+                                duration: 1.5,
+                                ease: 'linear',
+                                repeat: Infinity,
+                            }}
+                        >
+                            <ArrowRight className="h-5 w-[20px] flex-shrink-0" />
+                            <ArrowRight className="h-5 w-[20px] flex-shrink-0" />
+                        </motion.div>
+                    </div>
+
+                </a>
             </div>
         </section>
     );
