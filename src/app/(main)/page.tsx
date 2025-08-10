@@ -3,7 +3,7 @@ import ProjectCollage from '@/components/projects/ProjectCollage';
 import { getAllProjects } from '@/lib/projects';
 import FeaturedProjects from '@/components/projects/FeaturedProjects';
 import Experience from '@/components/shared/Experience';
-import ContactSection from '@/components/shared/ContactSection';
+
 
 export default function HomePage() {
   const allProjects = getAllProjects(); 
@@ -43,9 +43,8 @@ export default function HomePage() {
       </Container>
 
 
-      <Container className="mt-24 sm:mt-32 pb-16">
-        <ContactSection />
-      </Container>
+      {/* <Container className="mt-24 sm:mt-32 pb-16">
+      </Container> */}
     </>
   );
 }

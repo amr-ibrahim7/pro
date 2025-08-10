@@ -2,6 +2,8 @@ import { getProjectBySlug, getProjectSlugs } from '@/lib/projects';
 import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import ProjectFooterCTA from '@/components/shared/ProjectFooterCTA';
+
 
 export async function generateStaticParams() {
   const slugs = getProjectSlugs();
@@ -173,6 +175,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </div>
           </section>
         )}
+            <ProjectFooterCTA />
       </main>
     </div>
   );
