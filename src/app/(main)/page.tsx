@@ -3,6 +3,7 @@ import ProjectCollage from '@/components/projects/ProjectCollage';
 import { getAllProjects } from '@/lib/projects';
 import FeaturedProjects from '@/components/projects/FeaturedProjects';
 import Experience from '@/components/shared/Experience';
+import ProjectFooterCTA from '@/components/shared/ProjectFooterCTA';
 
 
 export default function HomePage() {
@@ -22,8 +23,8 @@ export default function HomePage() {
     <>
       <Container className="mt-36 sm:mt-48">
         <div className="max-w-3xl">
-          <h1 className="text-4xl font-light tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-          I'm Amr — a Web Developer learning to craft digital experiences by solving problems. Passionate about web development, design enthusiast, always eager to explore and grow.
+          <h1 className="select-none text-4xl font-light tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          I'm Amr — a Web Developer who loves to bridge the gap between clean code and thoughtful design. As a lifelong learner, I'm passionate about solving problems and constantly exploring new ideas.
           </h1>
         </div>
       </Container>
@@ -43,8 +44,12 @@ export default function HomePage() {
       </Container>
 
 
-      {/* <Container className="mt-24 sm:mt-32 pb-16">
-      </Container> */}
+      <Container className="mt-24 sm:mt-32 pb-16">
+        <ProjectFooterCTA 
+          title="Have a project in mind?"
+          description="I'm always excited to hear about new ideas. Feel free to reach out and let's discuss how we can build something great together."
+        />
+      </Container>
     </>
   );
 }

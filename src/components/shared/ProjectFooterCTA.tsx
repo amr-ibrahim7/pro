@@ -14,7 +14,15 @@ function LoadingSpinner(props: React.SVGProps<SVGSVGElement>) {
   return ( <svg className="animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" {...props}><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> )
 }
 
-export default function ProjectFooterCTA() {
+interface ProjectFooterCTAProps {
+  title?: string;
+  description?: string;
+}
+
+export default function ProjectFooterCTA({
+  title = "Thanks for reading till the end!",
+  description = "If you have any questions, please reach out to me on LinkedIn or send a message."
+}: ProjectFooterCTAProps) {
     const formRef = useRef<HTMLFormElement>(null);
   const [state, handleSubmit] = useForm('meqyanay');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -31,10 +39,10 @@ export default function ProjectFooterCTA() {
 
       <section className="max-w-3xl mx-auto mt-24 bg-black rounded-xl p-8 text-center">
         <h2 className="text-3xl font-bold text-white">
-          Thanks for reading till the end!
+        {title}
         </h2>
         <p className="mt-4 text-lg text-[#727273]">
-          If you have any questions, please reach out to me on LinkedIn or send a message.
+        {description}
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild size="lg" variant="secondary">
@@ -104,7 +112,6 @@ export default function ProjectFooterCTA() {
               )}
             </DialogContent>
           </Dialog>
-
         </div>
       </section>
     </>
