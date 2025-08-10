@@ -1,7 +1,8 @@
 'use client';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, UserCircle } from 'lucide-react';
 import React from 'react';
 import {  motion } from 'framer-motion';
+import Link from 'next/link';
 
 
 
@@ -46,7 +47,14 @@ export default function Experience() {
                 ))}
             </div>
 
-             <div className="mt-12 text-center">
+            <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8">
+            <Link 
+                    href="/about"
+                    className="group inline-flex items-center gap-2 text-lg font-medium text-muted-foreground hover:text-primary transition-colors"
+                >
+                    <UserCircle className="h-5 w-5 transition-transform group-hover:scale-110" />
+                    More Info
+                </Link>
                 <a 
                      href="https://drive.google.com/"
                      target="_blank"
@@ -68,7 +76,6 @@ export default function Experience() {
                             <ArrowRight className="h-5 w-[20px] flex-shrink-0" />
                         </motion.div>
                     </div>
-
                 </a>
             </div>
         </section>
