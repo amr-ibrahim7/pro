@@ -16,6 +16,7 @@ type ExperienceData = {
 export default function HomePage() {
   const allProjects = getAllProjects(); 
   const homeContent = getSingletonContent('home.md');
+  const { frontmatter: globalContent } = getSingletonContent('global.md');
 
 
   const experienceContent = getSingletonContent('experience.md');
@@ -57,8 +58,9 @@ export default function HomePage() {
 
       <Container className="mt-24 sm:mt-32 pb-16">
         <ProjectFooterCTA 
-          title="Have a project in mind?"
-          description="I'm always excited to hear about new ideas. Feel free to reach out and let's discuss how we can build something great together."
+          title={globalContent.home_cta_title}
+          description={globalContent.home_cta_description}
+          linkedinUrl={globalContent.linkedin_url}
         />
       </Container>
     </>

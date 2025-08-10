@@ -17,6 +17,7 @@ function SocialLink({ href, icon: Icon, children }: { href: string; icon: React.
 
 export default function AboutPage() {
   const aboutContent = getSingletonContent('about.md');
+  const { frontmatter: globalContent } = getSingletonContent('global.md');
   return (
     <Container className="mt-32 sm:mt-40">
          <div className="max-w-4xl mx-auto mb-8">
@@ -48,12 +49,12 @@ export default function AboutPage() {
           </div>
 
           <div className="space-y-4">
-            <SocialLink href="https://github.com/amr-ibrahim7" icon={GitHubIcon}>
-              Follow on GitHub
-            </SocialLink>
-            <SocialLink href="https://linkedin.com/in/amribrahimwebdev/" icon={LinkedInIcon}>
-              Follow on LinkedIn
-            </SocialLink>
+          <SocialLink href={globalContent.github_url} icon={GitHubIcon}>
+            Follow on GitHub
+          </SocialLink>
+          <SocialLink href={globalContent.linkedin_url} icon={LinkedInIcon}>
+            Follow on LinkedIn
+          </SocialLink>
           </div>
         </div>
       </div>

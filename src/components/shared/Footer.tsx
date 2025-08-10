@@ -1,3 +1,4 @@
+import { getSingletonContent } from '@/lib/content';
 import { Container } from './Container';
 import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
 
@@ -17,6 +18,7 @@ function SocialLink({ href, children }: { href: string, children: React.ReactNod
 }
 
 export default function Footer() {
+  const { frontmatter: globalContent } = getSingletonContent('global.md');
   return (
     <footer className="mt-32">
 
@@ -28,13 +30,13 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} A.T All rights reserved.
             </p>
             <div className="flex gap-6 font-medium">
-              <SocialLink href="mailto:amrtolba015@gmail.com">
+            <SocialLink href={`mailto:${globalContent.email_address}`}>
                 Email
               </SocialLink>
-              <SocialLink href="https://github.com/amr-ibrahim7">
+              <SocialLink href={globalContent.github_url}>
                 GitHub
               </SocialLink>
-              <SocialLink href="https://linkedin.com/in/amribrahimwebdev/">
+              <SocialLink href={globalContent.linkedin_url}>
                 LinkedIn
               </SocialLink>
             </div>

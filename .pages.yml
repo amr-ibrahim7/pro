@@ -57,6 +57,18 @@ content:
           - { name: "image", label: "Portrait Image", type: "image" } 
           - { name: "body", label: "Page Content", type: "rich-text" }
 
+        - name: "global"
+        label: "Global Site Settings"
+        file: "src/content/singletons/global.md"
+        fields:
+          - { name: "github_url", label: "GitHub URL", type: "string" }
+          - { name: "linkedin_url", label: "LinkedIn URL", type: "string" }
+          - { name: "email_address", label: "Email Address", type: "string" }
+          - { name: "home_cta_title", label: "Homepage CTA Title", type: "string" }
+          - { name: "home_cta_description", label: "Homepage CTA Description", type: "rich-text" }
+          - { name: "project_cta_title", label: "Project Page CTA Title", type: "string" }
+          - { name: "project_cta_description", label: "Project Page CTA Description", type: "rich-text" }
+
       - name: "experience"
         label: "Experience Section"
         file: "src/content/singletons/experience.md"

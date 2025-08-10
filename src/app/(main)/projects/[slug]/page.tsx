@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import ProjectFooterCTA from '@/components/shared/ProjectFooterCTA';
 import BackButton from '@/components/shared/BackButton';
 import OtherProjects from '@/components/shared/OtherProjects';
+import { getSingletonContent } from '@/lib/content';
 
 
 export async function generateStaticParams() {
@@ -33,6 +34,7 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = getProjectBySlug(params.slug);
   const otherProjects = getOtherProjects(params.slug);
+  const { frontmatter: globalContent } = getSingletonContent('global.md'); 
 
   if (!project) {
     notFound();
@@ -182,7 +184,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </section>
         )}
       <OtherProjects projects={otherProjects} />
-            <ProjectFooterCTA />
+            <ProjectFooterCTA
+               title={globalContent.project_cta_title}
+               description={globalContent.project_cta_description}
+               linkedinUrl={globalContent.linkedin_url}
+            />
       </main>
     </div>
   );

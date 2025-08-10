@@ -17,11 +17,13 @@ function LoadingSpinner(props: React.SVGProps<SVGSVGElement>) {
 interface ProjectFooterCTAProps {
   title?: string;
   description?: string;
+  linkedinUrl: string; 
 }
 
 export default function ProjectFooterCTA({
   title = "Thanks for reading till the end!",
-  description = "If you have any questions, please reach out to me on LinkedIn or send a message."
+  description = "If you have any questions, please reach out to me on LinkedIn or send a message.",
+  linkedinUrl 
 }: ProjectFooterCTAProps) {
     const formRef = useRef<HTMLFormElement>(null);
   const [state, handleSubmit] = useForm('meqyanay');
@@ -46,7 +48,7 @@ export default function ProjectFooterCTA({
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild size="lg" variant="secondary">
-            <a href="https://linkedin.com/in/your-profile-url" target="_blank" rel="noopener noreferrer">
+            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
               <Linkedin className="h-5 w-5 mr-2" />
               Connect on LinkedIn
             </a>
