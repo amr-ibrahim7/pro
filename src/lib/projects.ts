@@ -66,3 +66,17 @@ export function getAllProjects() {
   
   return allProjects.sort((a, b) => (a.id > b.id ? -1 : 1));
 }
+
+
+export function getOtherProjects(currentSlug: string) {
+  const allProjects = getAllProjects();
+  
+  const otherProjects = allProjects.filter(p => p.id !== currentSlug);
+
+  for (let i = otherProjects.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [otherProjects[i], otherProjects[j]] = [otherProjects[j], otherProjects[i]];
+  }
+
+  return otherProjects.slice(0, 3);
+}

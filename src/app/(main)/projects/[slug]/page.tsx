@@ -1,9 +1,10 @@
-import { getProjectBySlug, getProjectSlugs } from '@/lib/projects';
+import { getOtherProjects, getProjectBySlug, getProjectSlugs } from '@/lib/projects';
 import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import ProjectFooterCTA from '@/components/shared/ProjectFooterCTA';
 import BackButton from '@/components/shared/BackButton';
+import OtherProjects from '@/components/shared/OtherProjects';
 
 
 export async function generateStaticParams() {
@@ -31,6 +32,7 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = getProjectBySlug(params.slug);
+  const otherProjects = getOtherProjects(params.slug);
 
   if (!project) {
     notFound();
@@ -179,6 +181,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </div>
           </section>
         )}
+      <OtherProjects projects={otherProjects} />
             <ProjectFooterCTA />
       </main>
     </div>
