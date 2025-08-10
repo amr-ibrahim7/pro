@@ -2,19 +2,14 @@ import React from 'react';
 
 const experiences = [
     {
-        years: '2023 - Present',
-        title: 'Front-End Developer (Freelance)',
-        description: 'Building and maintaining responsive web applications for various clients using modern technologies like React, Next.js, and TypeScript.'
+        years: 'Feb 2025 - Aug 2025',
+        title: 'Full-Stack Developer (MERN Stack), ITI',
+        description: 'Completed an intensive, 6-month full-time program focused on the MERN stack. Gained hands-on experience building and deploying scalable web applications in a collaborative, project-based environment.'
     },
     {
-        years: '2022 - 2023',
-        title: 'Web Development Intern at Tech Solutions',
-        description: 'Assisted the senior development team in creating new features, fixing bugs, and improving the overall user experience of their flagship product.'
-    },
-    {
-        years: '2021',
-        title: 'Computer Science Student',
-        description: 'Graduated with a focus on web technologies, algorithms, and software engineering principles.'
+        years: '2023 - 2024',
+        title: 'Self-Taught Development & Freelance',
+        description: 'Transitioned from a business background, dedicating this period to intensive self-study and practical application. Built a variety of projects, including freelance work, to solidify skills in React, modern tooling, and creating full-featured, responsive web experiences.'
     }
 ];
 
@@ -23,10 +18,9 @@ export default function Experience() {
         <section>
             <div className="mb-12">
                 <h2 className="text-3xl font-bold tracking-tight text-center" id="experience">
-                    Experience
+                    My Journey So Far
                 </h2>
             </div>
-
             <div className="flex flex-col gap-10 max-w-3xl mx-auto">
                 {experiences.map((exp, index) => (
                     <div key={index} className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
