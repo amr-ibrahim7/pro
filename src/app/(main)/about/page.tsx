@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { Container } from '@/components/shared/Container';
 import { GitHubIcon, LinkedInIcon } from '@/components/shared/SocialIcons';
 import Link from 'next/link';
-import portraitImage from '@/images/about.jpg';
 import BackButton from '@/components/shared/BackButton';
 import { getSingletonContent } from '@/lib/content';
 import ReactMarkdown from 'react-markdown'; 
@@ -28,7 +27,7 @@ export default function AboutPage() {
         <div className="flex justify-center lg:order-last lg:pl-20">
           <div className="w-64 h-64 sm:w-80 sm:h-80 rotate-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 p-2 shadow-lg">
             <Image
-              src={portraitImage}
+               src={aboutContent.frontmatter.image} 
               alt="amr ibrahim image!"
               width={500}
               height={500}
