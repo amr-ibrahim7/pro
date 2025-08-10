@@ -1,5 +1,6 @@
 import Footer from '@/components/shared/Footer';
 import Header from '@/components/shared/Header';
+import ScrollToTopProgress from '@/components/shared/ScrollToTopProgress';
 import React from 'react';
 
 export default function MainLayout({
@@ -16,6 +17,7 @@ export default function MainLayout({
         </main>
         <Footer />
       </div>
+      <ScrollToTopProgress /> 
     </div>
   );
 }

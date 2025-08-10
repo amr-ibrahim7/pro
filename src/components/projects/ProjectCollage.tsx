@@ -95,7 +95,7 @@ export default function ProjectCollage({ projects }: { projects: Project[] }){
     <div className="mt-16 sm:mt-20">
       <div
         ref={containerRef}
-        className="-my-4 flex justify-center gap-0 py-4 relative h-[32rem] sm:h-[40rem]" // تم حذف items-center
+        className="-my-4 flex justify-center gap-0 py-4 relative"
       >
         {featuredProjects.map((project, imageIndex) => (
           <Link

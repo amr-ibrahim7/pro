@@ -9,9 +9,43 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+type NavLinkProps = {
+  href: string;
+  children: React.ReactNode;
+  scrollId?: string;
+};
+
+function NavLink({ href, children, scrollId }: NavLinkProps) {
   const pathname = usePathname();
   const isActive = pathname === href;
+  const isHomePage = pathname === '/';
+
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.getElementById(scrollId!);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
+  if (isHomePage && scrollId) {
+    return (
+      <a
+        href={`#${scrollId}`}
+        onClick={handleScroll}
+        className={cn(
+          "px-5 py-2 rounded-xl text-sm font-medium transition-colors duration-300",
+          "hover:bg-secondary/80" 
+        )}
+      >
+        {children}
+      </a>
+    );
+  }
 
   return (
     <Link
@@ -27,6 +61,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
     </Link>
   );
 }
+
 
 export default function Header() {
   const [isHidden, setIsHidden] = useState(false);
@@ -47,7 +82,7 @@ export default function Header() {
       whileHover='visible'
       onFocusCapture={() => setIsHidden(false)}
       variants={{
-        hidden: { y: '-90%' },
+        hidden: { y: '-85%' },
         visible: { y: '0%' }
       }}
       transition={{ duration: 0.2 }}
@@ -58,8 +93,9 @@ export default function Header() {
             <Logo />
         </div>
         <div className="flex flex-1 justify-center items-center gap-2 text-foreground">
-            <NavLink href="/about">About</NavLink>
-            <NavLink href="/projects">Works</NavLink>
+            <NavLink href="/">Home</NavLink>
+            <NavLink href="/projects" scrollId="case-studies">Works</NavLink>
+            <NavLink href="/about" scrollId="experience">About</NavLink>
         </div>
         <div className="flex flex-1 justify-end">
           <ThemeToggle /> 

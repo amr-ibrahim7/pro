@@ -52,8 +52,11 @@ export function getAllProjects() {
         id: project.slug,
         name: project.frontmatter.title,
         image: project.frontmatter.image,
+        description: project.frontmatter.description,
+        tags: project.frontmatter.tags || [],
+        link_preview: project.frontmatter.link_preview || null,
+        link_github: project.frontmatter.link_github || null,
         link: {
-          
           href: `/projects/${project.slug}`,
         },
       };
@@ -62,4 +65,18 @@ export function getAllProjects() {
 
   
   return allProjects.sort((a, b) => (a.id > b.id ? -1 : 1));
+}
+
+
+export function getOtherProjects(currentSlug: string) {
+  const allProjects = getAllProjects();
+  
+  const otherProjects = allProjects.filter(p => p.id !== currentSlug);
+
+  for (let i = otherProjects.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [otherProjects[i], otherProjects[j]] = [otherProjects[j], otherProjects[i]];
+  }
+
+  return otherProjects.slice(0, 3);
 }
