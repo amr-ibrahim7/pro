@@ -2,9 +2,10 @@ import Image from 'next/image';
 import { Container } from '@/components/shared/Container';
 import { GitHubIcon, LinkedInIcon } from '@/components/shared/SocialIcons';
 import Link from 'next/link';
-import portraitImage from '@/images/about.jpg'
+import portraitImage from '@/images/about.jpg';
 import BackButton from '@/components/shared/BackButton';
-
+import { getSingletonContent } from '@/lib/content';
+import ReactMarkdown from 'react-markdown'; 
 
 function SocialLink({ href, icon: Icon, children }: { href: string; icon: React.ElementType; children: React.ReactNode }) {
   return (
@@ -16,6 +17,7 @@ function SocialLink({ href, icon: Icon, children }: { href: string; icon: React.
 }
 
 export default function AboutPage() {
+  const aboutContent = getSingletonContent('about.md');
   return (
     <Container className="mt-32 sm:mt-40">
          <div className="max-w-4xl mx-auto mb-8">
@@ -39,17 +41,11 @@ export default function AboutPage() {
         <div className="space-y-10 lg:order-first">
           <div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground">
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              A little bit about me.
+            {aboutContent.frontmatter.title} 
             </h1>
-            <p>
-              I'm Amr, a web developer with a passion for turning complex problems into elegant, user-friendly digital experiences. My journey into tech began after exploring the business world, where I discovered that my true calling was in building and creating. This led me to dive head-first into the world of code.
-            </p>
-            <p>
-              Over the past couple of years, I've dedicated myself to mastering the MERN stack and modern web technologies. I thrive in environments that value clean code, thoughtful design, and continuous learning. I believe that the best products are built at the intersection of powerful engineering and intuitive design.
-            </p>
-            <p>
-              When I'm not coding, I enjoy exploring new creative tools, contributing to open-source projects, and staying up-to-date with the ever-evolving landscape of web development. I'm always excited about new challenges and opportunities to collaborate on impactful projects.
-            </p>
+            <ReactMarkdown>
+            {aboutContent.frontmatter.body}
+          </ReactMarkdown>
           </div>
 
           <div className="space-y-4">

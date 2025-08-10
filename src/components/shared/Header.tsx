@@ -82,7 +82,7 @@ export default function Header() {
       whileHover='visible'
       onFocusCapture={() => setIsHidden(false)}
       variants={{
-        hidden: { y: '-70%' },
+        hidden: { y: '-85%' },
         visible: { y: '0%' }
       }}
       transition={{ duration: 0.2 }}
