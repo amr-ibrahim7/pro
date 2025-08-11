@@ -94,16 +94,19 @@ export default function PortfolioIntro({ projects }: { projects: Project[] }){
         className="-my-4 flex justify-center gap-0 py-4 relative"
       >
         {featuredProjects.map((project, imageIndex) => (
-          <Link
-            key={project.id}
-            href={project.link.href}
-            className={clsx(
-              'photo',
-              'group relative aspect-square flex-none overflow-visible rounded-xl shadow-lg',
-              'transition-transform duration-300 ease-in-out hover:!rotate-0 hover:scale-105 hover:shadow-2xl hover:z-20',
-              initialStyles[imageIndex % initialStyles.length].size
-            )}
-          >
+        <Link
+        key={project.id}
+        href={project.link.href}
+        className={clsx(
+          'photo',
+          'group relative aspect-square flex-none overflow-visible rounded-xl',
+          'transition-all duration-300 ease-in-out hover:!rotate-0 hover:scale-105 hover:z-20',
+          'shadow-lg hover:shadow-2xl',
+          'dark:shadow-lg dark:shadow-primary/10', 
+          'dark:hover:shadow-2xl dark:hover:shadow-primary/20',
+          initialStyles[imageIndex % initialStyles.length].size
+        )}
+      >
             <div className="relative h-full w-full rounded-xl border-2 border-white/80 dark:border-zinc-800">
               <Image
                 src={project.image}
