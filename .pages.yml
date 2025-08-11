@@ -1,8 +1,12 @@
-
 media:
-  - name: "images"
-  - input: "public/images/projects"
+  - name: "project_images"
+    label: "Project Images"
+    input: "public/images/projects"
     output: "/images/projects"
+  - name: "general_images"
+    label: "General Images"
+    input: "public/images"
+    output: "/images"
 
 content:
   - name: "projects"
@@ -12,76 +16,47 @@ content:
     fields:
       - { name: "title", label: "Project Title", type: "string", required: true }
       - { name: "image", label: "Main Image", type: "image", required: true }
-      - { name: "description", label: "Short Description", type: "string", required: true }
-      - { name: "projectType", label: "Project Type", type: "string", default: "Personal Project" }
-      - name: "tags"
-        label: "Technologies Used (Stack)"
-        type: "string"
-        list: true
 
-      - { name: "link_github", label: "GitHub Link", type: "string" }
-      - { name: "link_preview", label: "Preview Link", type: "string" }
-      - { name: "projectPurposeAndGoal", label: "Project Purpose and Goal", type: "rich-text" }
-      - name: "webStackAndExplanation"
-        label: "Web Stack & Explanation"
+  - name: "home"
+    label: "Home Page Content"
+    type: "file"
+    path: "src/content/singletons/home.md"
+    fields:
+      - { name: "headline", label: "Headline", type: "rich-text" }
+
+  - name: "about"
+    label: "About Page Content"
+    type: "file"
+    path: "src/content/singletons/about.md"
+    fields:
+      - { name: "title", label: "Page Title", type: "string" }
+      - { name: "image", label: "Portrait Image", type: "image" }
+      - { name: "body", label: "Page Content", type: "rich-text" }
+
+  - name: "experience"
+    label: "Experience Section Content"
+    type: "file"
+    path: "src/content/singletons/experience.md"
+    fields:
+      - { name: "cv_link", label: "CV Download Link", type: "string" }
+      - name: "experiences"
+        label: "Experience Entries"
         type: "object"
         list: true
         fields:
-          - { name: "stackName", label: "Stack Name", type: "string" }
-          - { name: "explanation", label: "Explanation", type: "string" }
-          - { name: "icon", label: "Stack Icon", type: "image" }
-      - name: "projectImages"
-        label: "Project Images (Grid of 4)"
-        type: "image"
-        list: true
-      - { name: "problemAndThoughts", label: "Problem and Thoughts", type: "rich-text" }
-      - { name: "problemImage", label: "Problem Image", type: "image" }
-      - { name: "lessonsLearned", label: "Lessons Learned", type: "rich-text" }
-      - { name: "body", label: "Full Details (Markdown Body)", type: "rich-text" }
+          - { name: "years", label: "Years", type: "string" }
+          - { name: "title", label: "Job Title", type: "string" }
+          - { name: "description", label: "Description", type: "rich-text" }
 
-    - name: "pages"
-    label: "Pages Content"
-    type: "files"
-    files:
-      - name: "home"
-        label: "Home Page"
-        file: "src/content/singletons/home.md"
-        fields:
-          - { name: "headline", label: "Headline", type: "rich-text" }
-
-
-      - name: "about"
-        label: "About Page"
-        file: "src/content/singletons/about.md"
-        fields:
-          - { name: "title", label: "Page Title", type: "string" }
-          - { name: "image", label: "Portrait Image", type: "image" } 
-          - { name: "body", label: "Page Content", type: "rich-text" }
-
-        - name: "global"
-        label: "Global Site Settings"
-        file: "src/content/singletons/global.md"
-        fields:
-          - { name: "github_url", label: "GitHub URL", type: "string" }
-          - { name: "linkedin_url", label: "LinkedIn URL", type: "string" }
-          - { name: "email_address", label: "Email Address", type: "string" }
-          - { name: "home_cta_title", label: "Homepage CTA Title", type: "string" }
-          - { name: "home_cta_description", label: "Homepage CTA Description", type: "rich-text" }
-          - { name: "project_cta_title", label: "Project Page CTA Title", type: "string" }
-          - { name: "project_cta_description", label: "Project Page CTA Description", type: "rich-text" }
-
-      - name: "experience"
-        label: "Experience Section"
-        file: "src/content/singletons/experience.md"
-        fields:
-          - name: "cv_link"
-            label: "CV Download Link"
-            type: "string"
-          - name: "experiences"
-            label: "Experience Entries"
-            type: "object"
-            list: true
-            fields:
-              - { name: "years", label: "Years", type: "string" }
-              - { name: "title", label: "Job Title", type: "string" }
-              - { name: "description", label: "Description", type: "rich-text" }
+  - name: "global"
+    label: "Global Site Settings"
+    type: "file"
+    path: "src/content/singletons/global.md"
+    fields:
+      - { name: "github_url", label: "GitHub URL", type: "string" }
+      - { name: "linkedin_url", label: "LinkedIn URL", type: "string" }
+      - { name: "email_address", label: "Email Address", type: "string" }
+      - { name: "home_cta_title", label: "Homepage CTA Title", type: "string" }
+      - { name: "home_cta_description", label: "Homepage CTA Description", type: "rich-text" }
+      - { name: "project_cta_title", label: "Project Page CTA Title", type: "string" }
+      - { name: "project_cta_description", label: "Project Page CTA Description", type: "rich-text" }
