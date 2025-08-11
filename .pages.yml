@@ -67,7 +67,7 @@ content:
               - { name: "years", label: "Years", type: "string" }
               - { name: "title", label: "Job Title", type: "string" }
               - { name: "description", label: "Description", type: "rich-text" }
-              
+
       - name: "global"
         label: "Global Site Settings"
         file: "src/content/singletons/global.md"
