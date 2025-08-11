@@ -6,6 +6,7 @@ import ProjectFooterCTA from '@/components/shared/ProjectFooterCTA';
 import BackButton from '@/components/shared/BackButton';
 import OtherProjects from '@/components/shared/OtherProjects';
 import { getSingletonContent } from '@/lib/content';
+import { WebStack } from '@/types';
 
 
 export async function generateStaticParams() {
@@ -130,7 +131,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionTitle>Web Stack & Explanation</SectionTitle>
             <div className="space-y-6">
-              {frontmatter.webStackAndExplanation?.map((stack: any, index: number) => (
+            {frontmatter.webStackAndExplanation?.map((stack: WebStack, index: number) => (
                 <div key={index} className="flex items-start gap-6">
                   {stack.icon && <Image src={stack.icon} alt={stack.stackName} width={48} height={48} />}
                   <div>
@@ -143,17 +144,23 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </section>
         )}
 
-        {frontmatter.projectImages?.length > 0 && (
-          <section className="mb-16 max-w-5xl mx-auto">
-            <SectionTitle>Project Gallery</SectionTitle>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {frontmatter.projectImages.map((img: string, index: number) => (
-                <Image key={index} src={img} alt={`Project image ${index + 1}`} width={600} height={400} className="rounded-lg object-cover w-full h-auto" />
-              ))}
-            </div>
-          </section>
-        )}
-    
+{frontmatter.projectImages && frontmatter.projectImages.length > 0 && (
+  <section className="mb-16 max-w-5xl mx-auto">
+    <SectionTitle>Project Gallery</SectionTitle>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {frontmatter.projectImages.map((img: string, index: number) => (
+        <Image 
+          key={index} 
+          src={img} 
+          alt={`Project image ${index + 1}`} 
+          width={600} 
+          height={400} 
+          className="rounded-lg object-cover w-full h-auto" 
+        />
+      ))}
+    </div>
+  </section>
+)}
         {frontmatter.problemAndThoughts && (
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionTitle>Problem & Thoughts</SectionTitle>

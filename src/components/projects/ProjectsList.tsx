@@ -3,19 +3,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Project } from '@/types';
 
 
-type Project = {
-  id: string;
-  name: string;
-  image: string;
-  description: string;
-};
+
 
 
 const PROJECTS_PER_PAGE = 5;
 
-export default function ProjectsList({ projects }: { projects: Project[] }) {
+export default function ProjectsList({ projects }: { projects: Project[] }) { 
   const [visibleCount, setVisibleCount] = useState(PROJECTS_PER_PAGE);
 
 

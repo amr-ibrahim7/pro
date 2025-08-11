@@ -3,13 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import AnimatedLink from '../shared/AnimatedLink';
+import { Project } from '@/types';
 
-type Project = {
-  id: string;
-  name: string;
-  image: string;
-  description: string;
-};
+
 
 export default function FeaturedProjects({ projects }: { projects: Project[] }) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);

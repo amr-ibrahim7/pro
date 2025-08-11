@@ -5,15 +5,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 import clsx from 'clsx'
+import { Project } from '@/types'
 
-type Project = {
-    id: string;
-    image: string;
-    link: {
-      href: string;
-    };
-    name: string;
-};
+
 
 
 const initialStyles = [
@@ -24,7 +18,7 @@ const initialStyles = [
   { rotation: -3, size: 'w-48 h-48 sm:w-[180px] sm:h-[180px]' },
 ];
 
-export default function ProjectCollage({ projects }: { projects: Project[] }){
+export default function PortfolioIntro({ projects }: { projects: Project[] }){
   const featuredProjects: Project[] = projects.slice(0, 5);
   
   const containerRef = useRef<HTMLDivElement>(null);
