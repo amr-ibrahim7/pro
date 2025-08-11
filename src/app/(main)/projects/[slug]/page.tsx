@@ -14,27 +14,30 @@ export async function generateStaticParams() {
   return slugs;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-    const project = getProjectBySlug(params.slug);
-    if (!project) {
-      return {
-        title: "Project Not Found", 
-      };
-    }
-  
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+  if (!project) {
     return {
-      title: project.frontmatter.title,
-      description: project.frontmatter.description,
+      title: "Project Not Found", 
     };
+  }
+
+  return {
+    title: project.frontmatter.title,
+    description: project.frontmatter.description,
+  };
 }
 
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="text-3xl font-semibold mb-6 border-b border-border pb-3">{children}</h2>
+<h2 className="text-3xl font-semibold mb-6 border-b border-border pb-3">{children}</h2>
 );
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = getProjectBySlug(params.slug);
-  const otherProjects = getOtherProjects(params.slug);
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+  const otherProjects = getOtherProjects(slug);
   const { frontmatter: globalContent } = getSingletonContent('global.md'); 
 
   if (!project) {

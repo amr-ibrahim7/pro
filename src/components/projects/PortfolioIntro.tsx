@@ -37,6 +37,8 @@ export default function PortfolioIntro({ projects }: { projects: Project[] }){
     const container = containerRef.current;
     if (!container) return;
 
+    const intervalManager = animationData.current;
+
     const timeoutId = setTimeout(() => {
       const photoElements = gsap.utils.toArray<HTMLElement>('.photo');
       
@@ -72,15 +74,15 @@ export default function PortfolioIntro({ projects }: { projects: Project[] }){
         });
       };
       
-      if (animationData.current.intervalId) clearInterval(animationData.current.intervalId);
-      animationData.current.intervalId = setInterval(shufflePhotos, 8000);
+      if (intervalManager.intervalId) clearInterval(intervalManager.intervalId);
+      intervalManager.intervalId = setInterval(shufflePhotos, 8000);
 
     }, 100);
 
     return () => {
       clearTimeout(timeoutId);
-      if (animationData.current.intervalId) {
-        clearInterval(animationData.current.intervalId);
+      if (intervalManager.intervalId) {
+        clearInterval(intervalManager.intervalId);
       }
     };
   }, []);
