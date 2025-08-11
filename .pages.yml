@@ -11,7 +11,6 @@ media:
 content:
   - name: "projects"
     label: "Projects"
-    type: "collection"
     path: "src/content/projects"
     fields:
       - { name: "title", label: "Project Title", type: "string", required: true }
@@ -38,7 +37,6 @@ content:
 
   - name: "pages"
     label: "Pages & Global Settings"
-    type: "files"
     files:
       - name: "home"
         label: "Home Page Content"
@@ -67,7 +65,7 @@ content:
               - { name: "years", label: "Years", type: "string" }
               - { name: "title", label: "Job Title", type: "string" }
               - { name: "description", label: "Description", type: "rich-text" }
-
+              
       - name: "global"
         label: "Global Site Settings"
         file: "src/content/singletons/global.md"
