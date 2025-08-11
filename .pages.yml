@@ -1,8 +1,13 @@
 
 media:
-  - name: "images"
-  - input: "public/images/projects"
+  - name: "project_images"
+    label: "Project Images"
+    input: "public/images/projects"
     output: "/images/projects"
+  - name: "general_images"
+    label: "General Images"
+    input: "public/images"
+    output: "/images"
 
 content:
   - name: "projects"
@@ -39,12 +44,12 @@ content:
       - { name: "lessonsLearned", label: "Lessons Learned", type: "rich-text" }
       - { name: "body", label: "Full Details (Markdown Body)", type: "rich-text" }
 
-    - name: "pages"
-    label: "Pages Content"
+   - name: "pages"
+    label: "Pages & Global Settings"
     type: "files"
     files:
       - name: "home"
-        label: "Home Page"
+        label: "Home Page Content"
         file: "src/content/singletons/home.md"
         fields:
           - { name: "headline", label: "Headline", type: "rich-text" }
