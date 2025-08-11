@@ -40,7 +40,7 @@ export default function AboutPage() {
 
         <div className="space-y-10 lg:order-first">
           <div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl mb-8">
             {aboutContent.frontmatter.title} 
             </h1>
             <ReactMarkdown>
