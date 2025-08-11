@@ -6,6 +6,7 @@ import ProjectFooterCTA from '@/components/shared/ProjectFooterCTA';
 import BackButton from '@/components/shared/BackButton';
 import OtherProjects from '@/components/shared/OtherProjects';
 import { getSingletonContent } from '@/lib/content';
+import { WebStack } from '@/types';
 
 
 export async function generateStaticParams() {
@@ -13,27 +14,30 @@ export async function generateStaticParams() {
   return slugs;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-    const project = getProjectBySlug(params.slug);
-    if (!project) {
-      return {
-        title: "Project Not Found", 
-      };
-    }
-  
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+  if (!project) {
     return {
-      title: project.frontmatter.title,
-      description: project.frontmatter.description,
+      title: "Project Not Found", 
     };
+  }
+
+  return {
+    title: project.frontmatter.title,
+    description: project.frontmatter.description,
+  };
 }
 
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="text-3xl font-semibold mb-6 border-b border-border pb-3">{children}</h2>
+<h2 className="text-3xl font-semibold mb-6 border-b border-border pb-3">{children}</h2>
 );
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = getProjectBySlug(params.slug);
-  const otherProjects = getOtherProjects(params.slug);
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+  const otherProjects = getOtherProjects(slug);
   const { frontmatter: globalContent } = getSingletonContent('global.md'); 
 
   if (!project) {
@@ -130,7 +134,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionTitle>Web Stack & Explanation</SectionTitle>
             <div className="space-y-6">
-              {frontmatter.webStackAndExplanation?.map((stack: any, index: number) => (
+            {frontmatter.webStackAndExplanation?.map((stack: WebStack, index: number) => (
                 <div key={index} className="flex items-start gap-6">
                   {stack.icon && <Image src={stack.icon} alt={stack.stackName} width={48} height={48} />}
                   <div>
@@ -143,17 +147,23 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </section>
         )}
 
-        {frontmatter.projectImages?.length > 0 && (
-          <section className="mb-16 max-w-5xl mx-auto">
-            <SectionTitle>Project Gallery</SectionTitle>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {frontmatter.projectImages.map((img: string, index: number) => (
-                <Image key={index} src={img} alt={`Project image ${index + 1}`} width={600} height={400} className="rounded-lg object-cover w-full h-auto" />
-              ))}
-            </div>
-          </section>
-        )}
-    
+{frontmatter.projectImages && frontmatter.projectImages.length > 0 && (
+  <section className="mb-16 max-w-5xl mx-auto">
+    <SectionTitle>Project Gallery</SectionTitle>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {frontmatter.projectImages.map((img: string, index: number) => (
+        <Image 
+          key={index} 
+          src={img} 
+          alt={`Project image ${index + 1}`} 
+          width={600} 
+          height={400} 
+          className="rounded-lg object-cover w-full h-auto" 
+        />
+      ))}
+    </div>
+  </section>
+)}
         {frontmatter.problemAndThoughts && (
           <section className="mb-16 max-w-4xl mx-auto">
             <SectionTitle>Problem & Thoughts</SectionTitle>

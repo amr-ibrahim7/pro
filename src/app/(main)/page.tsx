@@ -1,16 +1,14 @@
 import { Container } from '@/components/shared/Container';
-import ProjectCollage from '@/components/projects/ProjectCollage';
+import PortfolioIntro from '@/components/projects/PortfolioIntro';
 import { getAllProjects } from '@/lib/projects';
 import FeaturedProjects from '@/components/projects/FeaturedProjects';
-import Experience, { ExperienceEntry } from '@/components/shared/Experience';
+import Experience from '@/components/shared/Experience';
 import ProjectFooterCTA from '@/components/shared/ProjectFooterCTA';
 import { getSingletonContent } from '@/lib/content';
+import { ExperienceData } from '@/types';
 
 
-type ExperienceData = {
-  cv_link: string;
-  experiences: ExperienceEntry[];
-}
+
 
 
 export default function HomePage() {
@@ -44,7 +42,7 @@ export default function HomePage() {
       
       <Container className="mt-20 sm:mt-24">
         <div className="mx-auto max-w-full lg:max-w-7xl">
-          <ProjectCollage projects={allProjects} />
+          <PortfolioIntro projects={allProjects} />
         </div>
       </Container>
 

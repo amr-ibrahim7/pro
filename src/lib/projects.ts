@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { Project, ProjectDetails } from '@/types';
 
 const projectsDirectory = path.join(process.cwd(), 'src/content/projects');
 
@@ -13,7 +14,7 @@ export function getProjectSlugs() {
 }
 
 
-export function getProjectBySlug(slug: string) {
+export function getProjectBySlug(slug: string): ProjectDetails | null {
   const mdxPath = path.join(projectsDirectory, `${slug}.mdx`);
   const mdPath = path.join(projectsDirectory, `${slug}.md`);
 
@@ -33,13 +34,13 @@ export function getProjectBySlug(slug: string) {
 
   return {
     slug,
-    frontmatter: data,
+    frontmatter: data as ProjectDetails['frontmatter'], 
     content,
   };
 }
 
 
-export function getAllProjects() {
+export function getAllProjects(): Project[] {
   const slugs = getProjectSlugs();
 
   const allProjects = slugs

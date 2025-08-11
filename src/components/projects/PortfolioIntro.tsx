@@ -1,19 +1,13 @@
 'use client'
 
 import React, { useLayoutEffect, useRef } from 'react'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 import clsx from 'clsx'
+import { Project } from '@/types'
 
-type Project = {
-    id: string;
-    image: string;
-    link: {
-      href: string;
-    };
-    name: string;
-};
+
 
 
 const initialStyles = [
@@ -24,7 +18,7 @@ const initialStyles = [
   { rotation: -3, size: 'w-48 h-48 sm:w-[180px] sm:h-[180px]' },
 ];
 
-export default function ProjectCollage({ projects }: { projects: Project[] }){
+export default function PortfolioIntro({ projects }: { projects: Project[] }){
   const featuredProjects: Project[] = projects.slice(0, 5);
   
   const containerRef = useRef<HTMLDivElement>(null);
@@ -42,6 +36,8 @@ export default function ProjectCollage({ projects }: { projects: Project[] }){
   useLayoutEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+
+    const intervalManager = animationData.current;
 
     const timeoutId = setTimeout(() => {
       const photoElements = gsap.utils.toArray<HTMLElement>('.photo');
@@ -78,15 +74,15 @@ export default function ProjectCollage({ projects }: { projects: Project[] }){
         });
       };
       
-      if (animationData.current.intervalId) clearInterval(animationData.current.intervalId);
-      animationData.current.intervalId = setInterval(shufflePhotos, 8000);
+      if (intervalManager.intervalId) clearInterval(intervalManager.intervalId);
+      intervalManager.intervalId = setInterval(shufflePhotos, 8000);
 
     }, 100);
 
     return () => {
       clearTimeout(timeoutId);
-      if (animationData.current.intervalId) {
-        clearInterval(animationData.current.intervalId);
+      if (intervalManager.intervalId) {
+        clearInterval(intervalManager.intervalId);
       }
     };
   }, []);
@@ -98,16 +94,19 @@ export default function ProjectCollage({ projects }: { projects: Project[] }){
         className="-my-4 flex justify-center gap-0 py-4 relative"
       >
         {featuredProjects.map((project, imageIndex) => (
-          <Link
-            key={project.id}
-            href={project.link.href}
-            className={clsx(
-              'photo',
-              'group relative aspect-square flex-none overflow-visible rounded-xl shadow-lg',
-              'transition-transform duration-300 ease-in-out hover:!rotate-0 hover:scale-105 hover:shadow-2xl hover:z-20',
-              initialStyles[imageIndex % initialStyles.length].size
-            )}
-          >
+        <Link
+        key={project.id}
+        href={project.link.href}
+        className={clsx(
+          'photo',
+          'group relative aspect-square flex-none overflow-visible rounded-xl',
+          'transition-all duration-300 ease-in-out hover:!rotate-0 hover:scale-105 hover:z-20',
+          'shadow-lg hover:shadow-2xl',
+          'dark:shadow-lg dark:shadow-primary/10', 
+          'dark:hover:shadow-2xl dark:hover:shadow-primary/20',
+          initialStyles[imageIndex % initialStyles.length].size
+        )}
+      >
             <div className="relative h-full w-full rounded-xl border-2 border-white/80 dark:border-zinc-800">
               <Image
                 src={project.image}
