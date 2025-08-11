@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { getAllProjects } from '@/lib/projects'; // فقط لجلب النوع، يمكن حذفه
-
+import { getAllProjects } from '@/lib/projects';
+import AnimatedLink from './AnimatedLink';
 
 type Project = ReturnType<typeof getAllProjects>[0];
 
@@ -41,6 +41,9 @@ export default function OtherProjects({ projects }: { projects: Project[] }) {
             </div>
           </Link>
         ))}
+      </div>
+      <div className="mt-16 flex justify-center">
+        <AnimatedLink href="/projects" title="View All Projects" />
       </div>
     </section>
   );

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Amr Tolba",
+  title: "A.T",
   description: "Amr tolba Sitee",
 };
 
