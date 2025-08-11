@@ -19,7 +19,7 @@ export default function ProjectsPage() {
       <div className="max-w-4xl mx-auto">
         <header className="mb-16">
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-            What I've been working on 
+            What I&apos;ve been working on 
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
             A collection of my work, from personal experiments to client projects.
@@ -30,3 +30,4 @@ export default function ProjectsPage() {
     </Container>
   );
 }
+

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useLayoutEffect, useRef } from 'react'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 import clsx from 'clsx'

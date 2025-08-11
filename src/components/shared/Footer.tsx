@@ -1,6 +1,6 @@
 import { getSingletonContent } from '@/lib/content';
 import { Container } from './Container';
-import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 
 function SocialLink({ href, children }: { href: string, children: React.ReactNode }) {
