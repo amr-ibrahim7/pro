@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes";
-import { type ThemeProviderProps } from "next-themes/dist/types";
+import { type ThemeProviderProps } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeContext } from "@/hooks/use-theme-context";
 
