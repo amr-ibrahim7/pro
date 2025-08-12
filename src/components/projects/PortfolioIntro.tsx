@@ -11,11 +11,11 @@ import { Project } from '@/types'
 
 
 const initialStyles = [
-  { rotation: -4, size: 'w-44 h-44 sm:w-[180px] sm:h-[180px]' },
-  { rotation: 6,  size: 'w-48 h-48 sm:w-[170px] sm:h-[170px]' },
-  { rotation: -4, size: 'w-40 h-40 sm:w-[180px] sm:h-[180px]' },
-  { rotation: 3.5, size: 'w-44 h-44 sm:w-[170px] sm:h-[170px]' },
-  { rotation: -3, size: 'w-48 h-48 sm:w-[180px] sm:h-[180px]' },
+  { rotation: -4, size: 'w-36 h-36 sm:w-[180px] sm:h-[180px]' },
+  { rotation: 6,  size: 'w-40 h-40 sm:w-[170px] sm:h-[170px]' },
+  { rotation: -4, size: 'w-32 h-32 sm:w-[180px] sm:h-[180px]' },
+  { rotation: 3.5, size: 'w-36 h-36 sm:w-[170px] sm:h-[170px]' },
+  { rotation: -3, size: 'w-40 h-40 sm:w-[180px] sm:h-[180px]' },
 ];
 
 export default function PortfolioIntro({ projects }: { projects: Project[] }){
@@ -88,7 +88,7 @@ export default function PortfolioIntro({ projects }: { projects: Project[] }){
   }, []);
 
   return (
-    <div className="mt-16 sm:mt-20">
+    <div className="mt-16 sm:mt-20 overflow-x-hidden">
       <div
         ref={containerRef}
         className="-my-4 flex justify-center gap-0 py-4 relative"
