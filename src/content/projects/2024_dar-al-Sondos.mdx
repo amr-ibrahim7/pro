@@ -1,0 +1,56 @@
+---
+title: 'Dar Al-Sondos: A Bilingual Real Estate Marketing Platform'
+image: /images/projects/dar_elsondos7.png
+description: 'A dynamic, fully responsive marketing website for a real estate financing company, built from scratch using React and Vite. Features bilingual support (AR/EN), dynamic content from a headless CMS, and integrated marketing analytics.'
+
+projectType: 'Freelance Project'
+tags:
+  - 'React'
+  - 'Vite'
+  - 'Tailwind CSS'
+  - 'React Query'
+  - 'Framer Motion'
+  - 'Multi-language'
+
+
+link_preview: 'https://darsondos.com'
+
+projectPurposeAndGoal: |
+  As my first freelance project, the goal was to deliver a professional, high-performance marketing website for Dar Al-Sondos, a real estate company. The key objectives were to create a fully bilingual (Arabic/English) platform, optimize for search engines (SEO), and build robust lead-generation forms to capture client inquiries. The project needed to be fast, responsive, and easy for the client to update content in the future.
+
+webStackAndExplanation:
+  - stackName: 'React & Vite'
+    explanation: 'The frontend was built as a Single Page Application (SPA) using React for its component-based architecture and Vite for its lightning-fast development experience and optimized production builds.'
+    icon: '/images/logos/react-icon.svg'
+  - stackName: 'Tailwind CSS'
+    explanation: 'A utility-first CSS framework was used to build a custom, responsive, and consistent design system from the ground up, with full support for Right-to-Left (RTL) styling for the Arabic interface.'
+    icon: '/images/logos/tailwindcss-icon.svg'
+  - stackName: 'React Query (TanStack Query)'
+    explanation: "All asynchronous data fetching from the backend is managed by React Query (now known as TanStack Query). This handles caching, background refetching, and server-state synchronization, resulting in a faster and more reliable user experience." # <-- هذا هو الشرح الجديد
+    icon: '/images/logos/react-query-icon.svg'
+  - stackName: 'Framer Motion'
+    explanation: 'Used to implement fluid and meaningful animations throughout the application, enhancing user engagement and providing a modern, polished feel to the interface.'
+    icon: '/images/logos/framer-motion-icon.png'
+
+projectImages:
+  - '/images/projects/dar_elsondos6.png'
+  - '/images/projects/dar_elsondos5.png'
+  - '/images/projects/dar_elsondos4.png'
+  - '/images/projects/dar_elsondos3.png'
+
+problemAndThoughts: |
+  One of the main challenges was implementing seamless bilingual support. This required architecting the application to handle not just text translation but also layout mirroring for Right-to-Left (RTL) languages. I solved this using a combination of React Context API for managing the current language and conditional styling with Tailwind CSS.
+
+  Another key challenge was managing asynchronous data. To ensure the UI was always responsive and up-to-date, I integrated React Query to handle all server state. This simplified data fetching logic, automated caching, and provided a much cleaner way to manage loading and error states compared to using simple `useEffect` hooks. For the lead-generation forms, I implemented robust client-side validation to provide instant feedback to the user, ensuring data quality before it was sent to the backend.
+
+lessonsLearned: |
+  This project was a pivotal learning experience as my first freelance engagement. It solidified my skills in building a complete frontend application that meets real-world business requirements. I learned how to manage a project from concept to deployment, the importance of robust state management with tools like React Query, and the intricacies of building multilingual, RTL-compatible interfaces. Most importantly, it taught me how to translate a client's vision into a functional and polished digital product.
+---
+
+### The Story Behind "Dar Al-Sondos"
+
+As my first major freelance project, I was responsible for the entire frontend development of the Dar Al-Sondos website. The client required a modern, fast, and SEO-friendly platform to showcase their real estate services and generate leads. A core requirement was full bilingual support for both Arabic and English.
+
+This presented an interesting challenge: it wasn't just about translating text. I had to architect the entire application to handle Right-to-Left (RTL) styling dynamically. Using Tailwind CSS, I implemented a system where the layout would automatically mirror itself based on the selected language, managed through a React Context. This ensured a native experience for users in both languages.
+
+For data management, I integrated the application with their headless backend, using **React Query** to fetch all dynamic content, from hero sliders to FAQ sections. This approach significantly improved performance by caching data and reducing unnecessary API calls. Building the complex financing and contact forms taught me the importance of client-side validation for providing a smooth user experience and ensuring data integrity. This project was a deep dive into building a professional-grade application that balances technical performance with the specific business goals of a client.
