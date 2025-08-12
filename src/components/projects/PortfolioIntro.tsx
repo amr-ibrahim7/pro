@@ -88,7 +88,7 @@ export default function PortfolioIntro({ projects }: { projects: Project[] }){
   }, []);
 
   return (
-    <div className="mt-16 sm:mt-20">
+    <div className="mt-16 sm:mt-20 overflow-x-hidden">
       <div
         ref={containerRef}
         className="flex justify-center gap-0 py-8 pt-12 pb-20 relative"
