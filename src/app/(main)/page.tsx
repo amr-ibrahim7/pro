@@ -1,25 +1,20 @@
-import { Container } from '@/components/shared/Container';
-import PortfolioIntro from '@/components/projects/PortfolioIntro';
-import { getAllProjects } from '@/lib/projects';
-import FeaturedProjects from '@/components/projects/FeaturedProjects';
-import Experience from '@/components/shared/Experience';
-import ProjectFooterCTA from '@/components/shared/ProjectFooterCTA';
-import { getSingletonContent } from '@/lib/content';
-import { ExperienceData } from '@/types';
-
-
-
-
+import { Container } from "@/components/shared/Container";
+import PortfolioIntro from "@/components/projects/PortfolioIntro";
+import { getAllProjects } from "@/lib/projects";
+import FeaturedProjects from "@/components/projects/FeaturedProjects";
+import Experience from "@/components/shared/Experience";
+import ProjectFooterCTA from "@/components/shared/ProjectFooterCTA";
+import { getSingletonContent } from "@/lib/content";
+import { ExperienceData } from "@/types";
 
 export default function HomePage() {
-  const allProjects = getAllProjects(); 
-  const homeContent = getSingletonContent('home.md');
-  const { frontmatter: globalContent } = getSingletonContent('global.md');
+  const allProjects = getAllProjects();
+  const homeContent = getSingletonContent("home.md");
+  const { frontmatter: globalContent } = getSingletonContent("global.md");
 
+  const experienceContent = getSingletonContent("experience.md");
 
-  const experienceContent = getSingletonContent('experience.md');
-
-  const featured = allProjects.slice(0, 2).map(p => ({
+  const featured = allProjects.slice(0, 2).map((p) => ({
     id: p.id,
     name: p.name,
     image: p.image,
@@ -39,23 +34,23 @@ export default function HomePage() {
           </h1>
         </div>
       </Container>
-      
-      <Container className="mt-20 sm:mt-24">
-        <div className="mx-auto max-w-full lg:max-w-7xl">
-          <PortfolioIntro projects={allProjects} />
-        </div>
-      </Container>
+
+      <div className="mt-20 sm:mt-24 mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
+        <PortfolioIntro projects={allProjects} />
+      </div>
 
       <Container className="mt-24 sm:mt-32">
         <FeaturedProjects projects={featured} />
       </Container>
 
       <Container className="mt-24 sm:mt-32">
-      <Experience experienceData={experienceContent.frontmatter as ExperienceData} />
+        <Experience
+          experienceData={experienceContent.frontmatter as ExperienceData}
+        />
       </Container>
 
       <Container className="mt-24 sm:mt-32 pb-16">
-        <ProjectFooterCTA 
+        <ProjectFooterCTA
           title={globalContent.home_cta_title}
           description={globalContent.home_cta_description}
           linkedinUrl={globalContent.linkedin_url}

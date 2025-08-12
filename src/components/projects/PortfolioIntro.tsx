@@ -88,10 +88,10 @@ export default function PortfolioIntro({ projects }: { projects: Project[] }){
   }, []);
 
   return (
-    <div className="mt-16 sm:mt-20 overflow-x-hidden">
+    <div className="mt-16 sm:mt-20">
       <div
         ref={containerRef}
-        className="-my-4 flex justify-center gap-0 py-4 relative"
+        className="flex justify-center gap-0 py-8 pt-12 pb-20 relative"
       >
         {featuredProjects.map((project, imageIndex) => (
         <Link
@@ -119,7 +119,7 @@ export default function PortfolioIntro({ projects }: { projects: Project[] }){
             </div>
             <span 
               className="
-                absolute -bottom-10 left-0 w-full 
+                absolute -bottom-16 left-0 w-full 
                 text-left text-sm text-zinc-600 dark:text-zinc-400
                 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             >
@@ -131,4 +131,3 @@ export default function PortfolioIntro({ projects }: { projects: Project[] }){
     </div>
   );
 }
-
