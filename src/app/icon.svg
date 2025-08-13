@@ -1,0 +1,17 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    path, circle {
+      stroke: black;
+      fill: black;
+    }
+    @media (prefers-color-scheme: dark) {
+      path, circle {
+        stroke: black;
+        fill: black;
+      }
+    }
+  </style>
+  <path d="M6 26 C 7 20, 9 14, 10 10 C 11 14, 13 20, 14 26 M8 20 Q 10 21, 12 20" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M18 10 Q 23 9, 28 10 M23 10 C 22 15, 24 21, 23 26" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="15.5" cy="16" r="1.8" stroke="none"/>
+</svg>
