@@ -94,7 +94,7 @@ export default function Header() {
         </div>
         <div className="flex flex-1 justify-center items-center gap-2 text-foreground">
             <NavLink href="/">Home</NavLink>
-            <NavLink href="/projects" scrollId="case-studies">Works</NavLink>
+            <NavLink href="/projects" scrollId="case-studies">Work</NavLink>
             <NavLink href="/about" scrollId="experience">About</NavLink>
         </div>
         <div className="flex flex-1 justify-end">
