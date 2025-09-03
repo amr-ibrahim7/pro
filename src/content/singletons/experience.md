@@ -1,5 +1,5 @@
 ---
-cv_link: https://drive.google.com/file/d/1Um8gKCfqIB32ml1mqFoQk8Oo79bmZye4/view?usp=drive_link
+cv_link: https://drive.google.com/drive/folders/1CMuyilaRKmL3Nm5nHaW75d3DOYFQJlIK?usp=drive_link
 experiences:
   - years: "Feb 2025 - Aug 2025"
     title: "Full-Stack Developer (MERN Stack), ITI"
