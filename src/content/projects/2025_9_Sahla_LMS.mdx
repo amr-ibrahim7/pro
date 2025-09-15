@@ -1,0 +1,66 @@
+---
+title: 'Sahla LMS: A Multi-Tenant B2B2C SaaS Learning Platform'
+image: '/images/projects/sahla1.png'
+description: 'A full-stack, multi-tenant B2B2C LMS empowering instructors to launch their own branded online academies with features like a drag-and-drop page builder, AI quizzes, and interactive coding playgrounds.'
+projectType: 'Collaborative Team Project'
+tags:
+  - 'Next.js 15 (App Router)'
+  - 'React 19'
+  - 'TypeScript'
+  - 'PostgreSQL & Prisma'
+  - 'Stripe'
+  - 'Tailwind CSS & shadcn/ui'
+  - 'Multi-tenancy'
+  - 'next-intl (i18n)'
+  - 'Judge0 API'
+  - 'Puck.js'
+link_github: 'https://github.com/Sahla-Ed/sahla-lms'
+link_preview: 'https://sahlah.tech/'
+
+projectPurposeAndGoal: |
+  The primary goal of Sahla LMS was to create a white-label SaaS platform that empowers educators and businesses to launch their own online learning academies without technical overhead. We aimed to provide a comprehensive, all-in-one solution that handles everything from course creation and student management to payment processing and custom branding, allowing creators to focus solely on their content.
+
+webStackAndExplanation:
+  - stackName: 'Next.js (App Router) & TypeScript'
+    explanation: 'Chosen for its robust features like Server Components, Server Actions for mutations, and built-in routing, which are ideal for a complex, full-stack application. TypeScript ensures type safety and scalability across the entire codebase.'
+    icon: '/images/logos/nextjs-icon.svg'
+  - stackName: 'PostgreSQL & Prisma'
+    explanation: 'PostgreSQL provides a reliable and scalable relational database. Prisma was used as the ORM for its excellent type safety, declarative schema, and seamless integration with Next.js, making database interactions predictable and efficient.'
+    icon: '/images/logos/prisma-icon.svg'
+  - stackName: 'Stripe for Payments & Subscriptions'
+    explanation: 'Integrated Stripe for secure payment processing, handling both one-time course purchases and recurring subscriptions. Webhooks were implemented to automate enrollments and manage subscription statuses in real-time.'
+    icon: '/images/logos/stripe-icon.svg'
+  - stackName: 'Multi-Tenancy Architecture'
+    explanation: 'The core of the platform. We used a subdomain-based approach, managed through Next.js Middleware, to isolate tenant data at both the routing and database levels, ensuring each instructor has a completely separate and branded experience.'
+    icon: '/images/logos/multi-tenant-icon.svg' #
+  - stackName: 'Judge0 API for Code Execution'
+    explanation: 'To provide a hands-on learning experience for technical courses, we integrated the Judge0 API. This allows students to write and execute code in multiple languages directly within a lesson, receiving instant feedback.'
+    icon: '/images/logos/code-icon.svg' #
+  - stackName: 'Puck.js for Page Building'
+    explanation: 'To give instructors full control over their brand, we integrated Puck.js as a headless, drag-and-drop landing page editor. This allows for dynamic, customizable public-facing pages without writing any code.'
+    icon: '/images/logos/puck-icon.svg' #
+
+projectImages:
+  - '/images/projects/sahla-dashboard.png'
+  - '/images/projects/sahla-course-structure.png'
+  - '/images/projects/sahla-bankTest.png'
+  - '/images/projects/sahla-settings.png'
+  - '/images/projects/sahla-student-dashboard.png'
+  - '/images/projects/sahla-rtl-support.png'
+
+problemAndThoughts: |
+  One of the most significant challenges was implementing the **multi-tenancy architecture**. We needed to ensure that data for each instructor (courses, students, branding) was completely isolated. Our solution involved using Next.js Middleware to identify the tenant from the subdomain. This subdomain was then used to dynamically scope all Prisma queries, ensuring that every database request was automatically filtered by the correct `tenantId`. This approach provided robust data isolation and allowed each instructor to have a truly independent platform.
+
+  Another challenge was implementing **localization to support both English (LTR) and Arabic (RTL)**. This went beyond simple text translation. We used the `next-intl` library and architected our UI components with Tailwind CSS to dynamically handle layout mirroring, text direction, and culturally appropriate formatting, providing a native experience for all users.
+
+lessonsLearned: |
+  This project was a deep dive into building a scalable SaaS product from the ground up. I gained significant experience in full-stack development with the Next.js App Router, implementing a secure multi-tenant architecture, and integrating complex third-party APIs like Stripe and Judge0. I also learned the importance of creating a seamless user experience, from the admin dashboard to the student learning environment, and how to balance technical complexity with business goals.
+---
+
+### The Story Behind "Sahla"
+
+Sahla (Arabic for "سهله") was born from a simple idea: to democratize online education by removing the technical barriers for talented creators. We envisioned a platform where any instructor could launch a professional, fully-branded online academy in minutes, not months.
+
+As a key developer on the team, my work was central to building the core learning experience... I led the development of the instructor and student dashboards, transforming them into data-rich interfaces with analytics, a "Continue Learning" feature, and a full gamification system (XP & Leaderboards)... Furthermore, I implemented critical learning features such as lesson completion tracking, course locking logic..., and a versatile question import tool (CSV/JSON)... I also developed the platform's role-based commenting system.
+
+I also led the development of the **student and instructor dashboards**, focusing on creating a data-rich experience with analytics that provides actionable insights. This included building features like "Continue Learning" and the gamification system (XP & Leaderboards) to significantly boost student engagement and course completion rates. This project wasn't just about writing code; it was about building a product that empowers others to build their own businesses.
